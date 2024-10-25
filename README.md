@@ -9,8 +9,8 @@
 
 ### Team Members
 - Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Member 2: [Name] - [SCMS]
+- Member 3: [Name] - [SCMS]
 
 ### Project Description
 [2-3 lines about what your project does]
