@@ -1,25 +1,25 @@
 <img width="1280" alt="readme-banner" src="https://github.com/user-attachments/assets/35332e92-44cb-425b-9dff-27bcf1023c6c">
 
-# [Project Name] 🎯
+# SmileGate
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: Bugged
 
 
 ### Team Members
-- Team Lead: [Name] - SCMS
-- Member 2: [Name] - [SCMS]
-- Member 3: [Name] - [SCMS]
+- Team Lead: Gayathri Jayan - SCMS
+- Member 2: Athul T.A - SCMS
+- Member 3: Ayisha Saniya - SCMS
 
 ### Project Description
-[2-3 lines about what your project does]
+The project is designed to create a website that only unlocks access when the user smiles. Using computer vision, the site detects a happy expression through the webcam, adding an engaging, interactive layer to website access.
 
 ### The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
+This project solves the "serious-face syndrome" by ensuring that only those with a smile can enter! Forget passwords; we’re replacing them with positivity and adding a bit of joy to the internet. It’s the ultimate smile check-in! 😄
 
 ### The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
+We’re turning your camera into a smile detector! No grumpy faces allowed—if you want access, you’ve got to flash those pearly whites. With some clever computer vision, the site checks for smiles like a virtual bouncer, opening up only for those who bring the good vibes!1
 
 ## Technical Details
 ### Technologies/Components Used
