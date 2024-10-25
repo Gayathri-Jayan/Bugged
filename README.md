@@ -8,7 +8,7 @@
 
 
 ### Team Members
-- Team Lead: [Name] - [College]
+- Team Lead: [Name] - SCMS
 - Member 2: [Name] - [SCMS]
 - Member 3: [Name] - [SCMS]
 
