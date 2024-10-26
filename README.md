@@ -24,15 +24,13 @@ We’re turning your camera into a smile detector! No grumpy faces allowed—if 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
+- Python,Html
+- Flask for (backend)
+- cv2
+- python ide,flask,cmd
 
 For Hardware:
-- [List main components]
-- [List specifications]
-- [List tools required]
+- Webcam
 
 ### Implementation
 For Software:
@@ -40,7 +38,9 @@ For Software:
 [commands]
 
 # Run
-[commands]
+python -m venv env
+python app.py
+
 
 ### Project Documentation
 For Software:
