@@ -8,9 +8,9 @@
 
 
 ### Team Members
-- Team Lead: Gayathri Jayan - SCMS
-- Member 2: Athul T.A - SCMS
-- Member 3: Ayisha Saniya - SCMS
+- Team Lead: Gayathri Jayan - SCMS SCHOOL OF ENGINEERING AND TECHNOLOGY
+- Member 2: Athul T.A - SCMS SCHOOL OF ENGINEERING AND TECHNOLOGY
+- Member 3: Ayisha Saniya - SCMS SCHOOL OF ENGINEERING AND TECHNOLOGY
 
 ### Project Description
 The project is designed to create a website that only unlocks access when the user smiles. Using computer vision, the site detects a happy expression through the webcam, adding an engaging, interactive layer to website access.
@@ -48,6 +48,8 @@ For Software:
 # Screenshots (Add at least 3)
 ![Screenshot1](Add screenshot 1 here with proper name)
 *Add caption explaining what this shows*
+![image](https://github.com/user-attachments/assets/2f24a65d-2fc3-4ac1-be5e-7543567956f6)
+
 
 ![Screenshot2](Add screenshot 2 here with proper name)
 *Add caption explaining what this shows*
