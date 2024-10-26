@@ -80,14 +80,6 @@ For Hardware:
 ![image](https://github.com/user-attachments/assets/262a1e94-62bc-447f-b87c-1f6de98f6e01)
 
 
-### Project Demo
-# Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
-
-# Additional Demos
-[Add any extra demo materials/links]
-
 ## Team Contributions
 - Gayathri Jayan
 - Ayisha Saniya M.S
