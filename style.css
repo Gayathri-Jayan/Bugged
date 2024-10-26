@@ -3,18 +3,22 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #f4f6f8;
+    background: linear-gradient(-225deg, rgb(255, 60, 172) 0%, rgb(86, 43, 124) 52%, rgb(43, 134, 197) 100%);
+    background-size: cover;
+    background-position: center;
     margin: 0;
     color: #333;
+    height: 100vh;
 }
 
 h1 {
-    color: #444;
+    color: #fff;
     margin-top: 20px;
 }
 
 h2 {
-    color: #666;
+    color: #ffebd4;
+    margin: 20px;
 }
 
 img {
@@ -27,9 +31,4 @@ img {
     font-size: 1.2em;
     color: #ff6f61;
     font-weight: bold;
-}
-
-#smile-percentage {
-    font-size: 2em;
-    color: #4CAF50;
 }
