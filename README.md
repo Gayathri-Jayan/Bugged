@@ -38,47 +38,47 @@ For Software:
 [commands]
 
 # Run
-python -m venv env
-python app.py
+1.Run the Flask Application
+  Start the application by running app.py with Python:
+  bash
+  python app.py
+2.Access the Application in Your Browser
+  Open a browser and go to http://127.0.0.1:5000.
+  You should see the first page with the smile detection message.
+3.Interact with the Application
+  Smile in front of the webcam to trigger the redirection to the next page.
+  Check the smile percentage on the next page.
+4.Shut Down the Server
+  To stop the server, press CTRL+C in the terminal where the Flask app is running.
+ 
 
 
 ### Project Documentation
-For Software:
+For Software:This project is structured as a web application using a client-server model where:
 
-# Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
-![image](https://github.com/user-attachments/assets/2f24a65d-2fc3-4ac1-be5e-7543567956f6)
+Backend: Flask (Python)
+Manages routing, server responses, and video stream processing.
+Frontend: HTML, CSS, JavaScript
+Renders the user interface and displays real-time webcam feed.
+The application leverages OpenCV to perform smile detection in real-time using Haar Cascade classifiers.
 
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+# Screenshots 
+![image](https://github.com/user-attachments/assets/e47decec-df90-4b0a-9d17-ed07c140b1f0)
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
 
-# Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
+![image](https://github.com/user-attachments/assets/6217923f-65fa-480c-9df0-ccd813c90d45)
+
+
+![image](https://github.com/user-attachments/assets/cff342e3-ccd1-4a32-9dd8-f23e5d71c8ef)
+
+
 
 For Hardware:
 
-# Schematic & Circuit
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
-
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
-
 # Build Photos
-![Components](Add photo of your components here)
-*List out all components shown*
+![image](https://github.com/user-attachments/assets/262a1e94-62bc-447f-b87c-1f6de98f6e01)
 
-![Build](Add photos of build process here)
-*Explain the build steps*
-
-![Final](Add photo of final product here)
-*Explain the final build*
 
 ### Project Demo
 # Video
@@ -89,9 +89,9 @@ For Hardware:
 [Add any extra demo materials/links]
 
 ## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
+- Gayathri Jayan
+- Ayisha Saniya M.S
+- Athul T.A
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 
