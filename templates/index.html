@@ -8,27 +8,47 @@
 </head>
 <body>
     <h1>Smile Detector</h1>
-    <div>
-        <img src="{{ url_for('video_feed') }}" alt="Video Feed" style="width: 100%; max-width: 600px;">
-        <h2 id="smile-status">Smile and let the world wonder why</h2>
-    </div>
+    <video id="video" width="640" height="480" autoplay></video>
+    <canvas id="canvas" style="display: none;"></canvas>
+
+    <h2 id="smile-status">Smile and let the world wonder why</h2>
 
     <script>
-        function checkSmile() {
-            fetch("{{ url_for('smile_check') }}")
-                .then(response => response.json())
-                .then(data => {
-                    if (data.smile_detected) {
-                        // Redirect to next page if smile detected
-                        window.location.href = "{{ url_for('next_page') }}";
-                    } else {
-                        // Display message if no smile detected
-                        document.getElementById("smile-status").innerText = "Smile and let the world wonder why";
-                    }
-                });
+        // Access webcam using JavaScript
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function(stream) {
+                document.getElementById('video').srcObject = stream;
+            })
+            .catch(function(err) {
+                console.log('Error accessing webcam: ', err);
+            });
+
+        // Capture webcam image every second and send to Flask for processing
+        function captureFrame() {
+            const canvas = document.getElementById('canvas');
+            const video = document.getElementById('video');
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            canvas.getContext('2d').drawImage(video, 0, 0);
+
+            const imageData = canvas.toDataURL('image/jpeg');
+            fetch('/detect_smile', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ image: imageData })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const smileStatus = data.smileDetected ? 'Smile detected!' : 'Smile and let the world wonder why';
+                document.getElementById("smile-status").innerText = smileStatus;
+            });
         }
 
-        setInterval(checkSmile, 1000);  // Check for smile every second
+        // Capture frame every 1 second
+        setInterval(captureFrame, 1000);
     </script>
 </body>
 </html>
+
