@@ -44,5 +44,8 @@ def detect_smile():
             smile_detected = True
 
     return jsonify(smileDetected=smile_detected)
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 
