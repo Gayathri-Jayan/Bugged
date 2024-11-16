@@ -1,6 +1,7 @@
-flask
+
+Flask
 opencv-python
 numpy
-
+gunicorn
 
 
