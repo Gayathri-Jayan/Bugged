@@ -1,7 +1,6 @@
-from flask import Flask, render_template, Response, jsonify, redirect, url_for
+from flask import Flask, render_template, request, jsonify, Response
 import cv2
-from flask import Flask, request, jsonify
-
+import numpy as np
 
 app = Flask(__name__)
 
@@ -9,10 +8,10 @@ app = Flask(__name__)
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 smile_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_smile.xml')
 
-# Initialize webcam
+# Initialize webcam (for real-time video feed)
 cap = cv2.VideoCapture(0)
 
-# Global variable to store smile detection status
+# Global variables to store smile detection status and percentage
 smile_detected = False
 smile_percentage = 0
 
@@ -67,25 +66,10 @@ def smile_check():
     global smile_detected
     return jsonify(smile_detected=smile_detected)
 
-@app.route('/next_page')
-def next_page():
-    return render_template('next_page.html')
-
 @app.route('/smile_percentage')
 def smile_percentage_route():
     global smile_percentage
     return jsonify(smile_percentage=smile_percentage)
-
-
-from flask import Flask, render_template, request, jsonify
-import cv2
-import numpy as np
-
-app = Flask(__name__)
-
-@app.route('/')
-def index():
-    return render_template('index.html')
 
 @app.route('/detect_smile', methods=['POST'])
 def detect_smile():
@@ -94,10 +78,6 @@ def detect_smile():
         img_data = request.files['image']
         img_array = np.frombuffer(img_data.read(), np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-
-        # Load the Haar Cascade Classifiers
-        face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
-        smile_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_smile.xml')
 
         # Convert to grayscale for detection
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -124,12 +104,3 @@ def detect_smile():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
-
-
-
-if __name__ == '__main__':
-    from os import environ
-    port = int(environ.get('PORT', 5000))  # Get PORT from environment variable (for deployment)
-    app.run(host='0.0.0.0', port=port, debug=True)
