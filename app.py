@@ -3,7 +3,17 @@ import cv2
 import numpy as np
 import base64
 
+import os
+from flask import Flask
+
 app = Flask(__name__)
+
+# Your routes and other code here...
+
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))  # Get the port from environment variables, default to 5000
+    app.run(host='0.0.0.0', port=port, debug=True)  # Listen on all interfaces (0.0.0.0)
+
 
 # Load pre-trained classifiers for face and smile detection
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
@@ -35,5 +45,4 @@ def detect_smile():
 
     return jsonify(smileDetected=smile_detected)
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+
