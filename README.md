@@ -35,9 +35,12 @@ For Hardware:
 ### Implementation
 For Software:
 # Installation
-[commands]
+
 
 # Run
+
+open https://bugged-q8z0.onrender.com
+
 1.Run the Flask Application
   Start the application by running app.py with Python:
   bash
