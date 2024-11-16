@@ -77,18 +77,53 @@ def smile_percentage_route():
     return jsonify(smile_percentage=smile_percentage)
 
 
+from flask import Flask, render_template, request, jsonify
+import cv2
+import numpy as np
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
 @app.route('/detect_smile', methods=['POST'])
 def detect_smile():
     try:
-        # Your smile detection code here
-        result = detect_smile_from_image(request.files['image'])
-        if result:
-            return jsonify({"message": "Smile detected!"}), 200
-        else:
-            return jsonify({"message": "No smile detected."}), 200
+        # Get the image from the request
+        img_data = request.files['image']
+        img_array = np.frombuffer(img_data.read(), np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+
+        # Load the Haar Cascade Classifiers
+        face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+        smile_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_smile.xml')
+
+        # Convert to grayscale for detection
+        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+        # Detect faces
+        faces = face_cascade.detectMultiScale(gray, 1.3, 5)
+
+        for (x, y, w, h) in faces:
+            # Extract the region of interest for smile detection
+            roi_gray = gray[y:y+h, x:x+w]
+
+            # Detect smiles within the face ROI
+            smiles = smile_cascade.detectMultiScale(roi_gray, scaleFactor=1.8, minNeighbors=20, minSize=(25, 25), flags=cv2.CASCADE_SCALE_IMAGE)
+
+            # If smiles are detected, return a success message
+            if len(smiles) > 0:
+                return jsonify({"message": "Smile detected!"})
+
+        # If no smile is detected, return a different message
+        return jsonify({"message": "No smile detected!"})
+
     except Exception as e:
-        # Return an error message if something goes wrong
         return jsonify({"error": str(e)}), 500
+
+if __name__ == '__main__':
+    app.run(debug=True)
 
 
 
