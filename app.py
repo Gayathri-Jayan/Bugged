@@ -1,5 +1,7 @@
 from flask import Flask, render_template, Response, jsonify, redirect, url_for
 import cv2
+from flask import Flask, request, jsonify
+
 
 app = Flask(__name__)
 
@@ -77,8 +79,19 @@ def smile_percentage_route():
 
 @app.route('/detect_smile', methods=['POST'])
 def detect_smile():
-    # Your smile detection code here
-    pass
+    try:
+        # Your smile detection code here
+        result = detect_smile_from_image(request.files['image'])
+        if result:
+            return jsonify({"message": "Smile detected!"}), 200
+        else:
+            return jsonify({"message": "No smile detected."}), 200
+    except Exception as e:
+        # Return an error message if something goes wrong
+        return jsonify({"error": str(e)}), 500
+
+
+
 
 
 if __name__ == '__main__':
