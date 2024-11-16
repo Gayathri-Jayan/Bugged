@@ -4,4 +4,3 @@ numpy
 
 
 
-pip install flask opencv-python numpy
